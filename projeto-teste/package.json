@@ -1,0 +1,21 @@
+{
+  "name": "project-teste",
+  "version": "1.0.0",
+  "description": "projeto teste para aulas de C214",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node ./src/index.ts",
+    "start:prod": "npm run build && node dist/index.js",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"**/*.ts\"",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.0",
+    "husky": "^9.1.5",
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
