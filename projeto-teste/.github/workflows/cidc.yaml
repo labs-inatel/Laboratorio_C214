@@ -16,8 +16,9 @@ jobs:
           node-version: "20"
       - name: Change directory
         run: cd projeto-teste
-      - name: Install devDependencies
+      - name: Install dependencies
         run: npm install
         working-directory: projeto-teste
       - name: Run build
         run: npm run build
+        working-directory: projeto-teste
