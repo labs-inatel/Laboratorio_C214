@@ -15,6 +15,8 @@ jobs:
         with:
           node-version: "20"
       - name: Install dependencies
-        run: npm i
+        run: npm install
+        working-directory: projeto-teste
       - name: Run build
         run: npm run build
+        working-directory: projeto-teste
