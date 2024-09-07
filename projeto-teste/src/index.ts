@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import readline from "readline";
 import { promisify } from "util";
-import { Task, ToDoList } from "./ToDolist";
+import { Task, ToDoList } from "./ToDoList";
 
 const reader = readline.createInterface({
   input: process.stdin,
