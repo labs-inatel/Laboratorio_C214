@@ -2,9 +2,35 @@ name: CI-CD
 on:
   push:
     branches:
-      - aula-04
+      - main
+      - aula-05
 
 jobs:
+  test:
+    name: Running unit-tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: projeto-teste
+
+      - name: Run unit tests
+        run: npm run test
+        working-directory: projeto-teste
+
+      - name: Upload test results
+        if: success() || failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: coverage
   build:
     name: build
     runs-on: ubuntu-latest
