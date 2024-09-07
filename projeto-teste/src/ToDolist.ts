@@ -23,10 +23,13 @@ export class ToDoList {
     const missingProperties = ["title", "description", "targetDate"].filter(
       (prop) => !Object.keys(task).includes(prop)
     );
+
+    // Se alguma propriedade estiver ausente, uma mensagem de erro é retornada
     try {
       if (missingProperties.length > 0) {
         return "Missing properties in task object";
       }
+      // caso contrário, a tarefa é adicionada ao array
       this.tasks.push(task);
     } catch (error) {
       return error;
