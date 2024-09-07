@@ -7,7 +7,7 @@
     "start": "ts-node ./src/index.ts",
     "start:prod": "npm run build && node dist/index.js",
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --collect-coverage",
     "format": "prettier --write \"**/*.ts\"",
     "prepare": "husky"
   },
@@ -15,11 +15,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^29.5.12",
     "@types/node": "^22.5.0",
     "eslint": "^9.9.1",
     "globals": "^15.9.0",
     "husky": "^9.1.5",
+    "jest": "^29.7.0",
     "prettier": "^3.3.3",
+    "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.3.0"
