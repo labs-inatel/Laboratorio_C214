@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import readline from "readline";
 import { promisify } from "util";
-import { Task, ToDoList } from "./ToDoList";
+import { ToDoList } from "./ToDoList";
+import { ToDoListMemory } from "./ToDoListMemory";
+import { Task } from "./types";
 
 const reader = readline.createInterface({
   input: process.stdin,
@@ -14,7 +16,8 @@ async function getUserInput(prompt: string): Promise<any> {
   return await userInput(prompt);
 }
 
-const toDoList = new ToDoList();
+const memoryStorage = new ToDoListMemory();
+const toDoList = new ToDoList(memoryStorage);
 
 async function addNewTask() {
   const newTask: Task = {
