@@ -1,53 +1,24 @@
-export type Task = {
-  title: string;
-  description: string;
-  targetDate: string;
-  type?: string;
-  priority?: string;
-  subTasks?: Task[];
-};
-
-export type UpdateTask = {
-  title?: string;
-  description?: string;
-  targetDate?: string;
-  type?: string;
-  priority?: string;
-  subTasks?: Task[];
-};
-
+import { ToDoListRepository } from "./ToDoListRepository";
+import { Task, UpdateTask } from "./types";
 export class ToDoList {
-  private tasks: Task[] = [];
+  toDoListRepository: ToDoListRepository;
+  constructor(toDoListRepository: ToDoListRepository) {
+    this.toDoListRepository = toDoListRepository;
+  }
 
   add(task: Task) {
-    const missingProperties = ["title", "description", "targetDate"].filter(
-      (prop) => !Object.keys(task).includes(prop)
-    );
-
-    // Se alguma propriedade estiver ausente, uma mensagem de erro é retornada
-    try {
-      if (missingProperties.length > 0) {
-        return "Missing properties in task object";
-      }
-      // caso contrário, a tarefa é adicionada ao array
-      this.tasks.push(task);
-    } catch (error) {
-      return error;
-    }
+    return this.toDoListRepository.add(task);
   }
 
   getTasks() {
-    return this.tasks;
+    return this.toDoListRepository.getTasks();
   }
 
   updateTask(index: number, task: UpdateTask) {
-    this.tasks[index] = {
-      ...this.tasks[index],
-      ...task,
-    };
+    return this.toDoListRepository.updateTask(index, task);
   }
 
   removeTask(index: number) {
-    this.tasks.splice(index, 1);
+    return this.toDoListRepository.removeTask(index);
   }
 }
