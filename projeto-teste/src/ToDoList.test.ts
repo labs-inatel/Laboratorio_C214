@@ -1,4 +1,5 @@
-import { Task, ToDoList } from "./ToDoList";
+import { Task } from "./types";
+import { ToDoListMemory } from "./ToDoListMemory";
 
 const anyTask = {
   title: "any_title",
@@ -12,13 +13,13 @@ const anyTask = {
 describe("ToDoList", () => {
   describe("Testing add", () => {
     test("should add a new task to the list", () => {
-      const todoInstance = new ToDoList();
+      const todoInstance = new ToDoListMemory();
       todoInstance.add(anyTask);
       const tasks = todoInstance.getTasks();
       expect(tasks).toEqual([anyTask]);
     });
     test("should add a valid tasks", () => {
-      const todoInstance = new ToDoList();
+      const todoInstance = new ToDoListMemory();
       const invalidValue: unknown = {
         invalidField: "invalidValue",
       };
