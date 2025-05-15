@@ -1,3 +1,5 @@
+[![CIDC - C214](https://github.com/labs-inatel/Laboratorio_C214/actions/workflows/cidc.yml/badge.svg)](https://github.com/labs-inatel/Laboratorio_C214/actions/workflows/cidc.yml)
+
 # C214 - Engenharia de Software
 
 Repositório com projetos e exercícios desenvolvidos na disciplina **C214 - Engenharia de Software**.
